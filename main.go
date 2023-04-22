@@ -7,9 +7,9 @@ import (
 
 func setUpRouter() *gin.Engine{
     r:=gin.Default()
-    r.LoadHTMLGlob("templates/*")
+    r.LoadHTMLGlob("resources/views/*")
 
-    r.GET("/ping",func(c *gin.Context){
+    r.GET("/",func(c *gin.Context){
         c.HTML(http.StatusOK, "index.tmpl", gin.H{
             "title": "Gin HTML Example",
         })
