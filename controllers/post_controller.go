@@ -1,11 +1,11 @@
 package controllers
 
 import (
-    "github.com/gin-gonic/gin"
-    "gin_sample/models"
+	"gin_sample/models"
+	"github.com/gin-gonic/gin"
 )
 
 func ShowAllPost(c *gin.Context) {
-    posts :=models.Get()
-    c.HTML(200,"show.tmpl",gin.H{"posts":posts})
+	posts := models.Get()
+	c.HTML(200, "index.tmpl", gin.H{"posts": posts})
 }
