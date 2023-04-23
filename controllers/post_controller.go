@@ -18,3 +18,7 @@ func ShowOnePost(c *gin.Context) {
 	fmt.Println(post)
 	c.HTML(200, "show.tmpl", gin.H{"post": post})
 }
+
+func Create(c *gin.Context) {
+	c.HTML(200, "create.tmpl", gin.H{})
+}

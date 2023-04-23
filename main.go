@@ -11,6 +11,7 @@ func setUpRouter() *gin.Engine {
 
 	r.GET("/", controllers.ShowAllPost)
 	r.GET("/posts/:id", controllers.ShowOnePost)
+	r.GET("/create", controllers.Create)
 
 	return r
 }
