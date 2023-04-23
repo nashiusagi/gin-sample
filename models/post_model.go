@@ -20,16 +20,15 @@ func Get() []Post {
 	return allPost
 }
 
-func GetOne(id int) Post{
+func GetOne(id int) Post {
 	var post Post
-    result:=Db.First(&post,id)
+	result := Db.First(&post, id)
 	if result.Error != nil {
 		panic(result.Error)
 	}
 
-    return post
+	return post
 }
-    
 
 func (data Post) Create() {
 	result := Db.Create(data)

@@ -10,7 +10,7 @@ func setUpRouter() *gin.Engine {
 	r.LoadHTMLGlob("resources/views/*")
 
 	r.GET("/", controllers.ShowAllPost)
-    r.GET("/posts/:id", controllers.ShowOnePost)
+	r.GET("/posts/:id", controllers.ShowOnePost)
 
 	return r
 }

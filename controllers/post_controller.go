@@ -1,10 +1,10 @@
 package controllers
 
 import (
-    "fmt"
-    "strconv"
+	"fmt"
 	"gin_sample/models"
 	"github.com/gin-gonic/gin"
+	"strconv"
 )
 
 func ShowAllPost(c *gin.Context) {
@@ -13,8 +13,8 @@ func ShowAllPost(c *gin.Context) {
 }
 
 func ShowOnePost(c *gin.Context) {
-    id,_:=strconv.Atoi(c.Param("id"))
+	id, _ := strconv.Atoi(c.Param("id"))
 	post := models.GetOne(id)
-    fmt.Println(post)
+	fmt.Println(post)
 	c.HTML(200, "show.tmpl", gin.H{"post": post})
 }
