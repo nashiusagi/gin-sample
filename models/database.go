@@ -5,6 +5,7 @@ import (
     "os"
     "time"
 
+    "github.com/joho/godotenv"
     "gorm.io/driver/mysql"
     "gorm.io/gorm"
 )
@@ -12,15 +13,18 @@ import (
 var Db *gorm.DB
 
 func init(){
-    user:=os.Getenv("MYSQL_USER")
-    pw:=os.Getenv("MYSQL_PASSWORD")
-    db_name:=os.Getenv("MYSQL_DATABASE")
-    var path string=fmt.Sprintf("%s:%s@tcp(db:3306)/%s?charset=utf8&parseTime=true",user,pw,db_name)
+    err:=godotenv.Load(".env")
+    if err!=nil{
+        panic("cannot load .env")
+    }
+    user:=os.Getenv("DB_USER")
+    pw:=os.Getenv("DB_PASSWORD")
+    db_name:=os.Getenv("DB_NAME")
+    var path string=fmt.Sprintf("%s:%s@tcp(localhost:3306)/%s?charset=utf8&parseTime=true",user,pw,db_name)
     dialector:=mysql.Open(path)
 
-    var err error
-    if Db, error=gorm.Open(dialector);error!=nil{
-        connect(dialector,100)
+    if Db, err=gorm.Open(dialector);err!=nil{
+        connect(dialector,10)
     }
     fmt.Println("db connected!!")
 }

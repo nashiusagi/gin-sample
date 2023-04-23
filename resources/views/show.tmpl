@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{.title}}</title>
+    </head>
+    <body>
+        <h1> Blog </h1>
+        {{range $index,$element := .Blogs}}
+                <h3>{{ $element.title }}</h3>
+                <p>{{ $element.body }}</p>
+        {{end}}
+    </body>
+</html>
