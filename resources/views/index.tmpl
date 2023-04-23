@@ -6,7 +6,7 @@
     <body>
         <h1> Blog </h1>
         {{range $index,$element := .posts}}
-                <h2>{{ $element.Title }}</h2>
+                <h2><a href="/posts/{{ $element.Id }}">{{ $element.Title }}</a></h2>
                 <p>{{ $element.Body }}</p>
         {{end}}
     </body>
