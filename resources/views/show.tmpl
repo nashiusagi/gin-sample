@@ -5,9 +5,9 @@
     </head>
     <body>
         <h1> Blog </h1>
-        {{range $index,$element := .Blogs}}
-                <h3>{{ $element.title }}</h3>
-                <p>{{ $element.body }}</p>
+        {{range $index,$element := .posts}}
+                <h2>{{ $element.Title }}</h2>
+                <p>{{ $element.Body }}</p>
         {{end}}
     </body>
 </html>
