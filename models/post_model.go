@@ -1,7 +1,7 @@
 package models
 
 import (
-    "fmt"
+	"fmt"
 )
 
 type Post struct {
@@ -31,10 +31,17 @@ func GetOne(id int) Post {
 }
 
 func (data Post) Create() {
-    fmt.Println(data)
+	fmt.Println(data)
 	result := Db.Create(&data)
 	if result.Error != nil {
 		panic(result.Error)
 	}
 	return
+}
+
+func (data Post) Update() {
+	result := Db.Save(&data)
+	if result.Error != nil {
+		panic(result.Error)
+	}
 }

@@ -7,6 +7,7 @@
         <h1> Blog </h1>
             <h2>{{ .post.Title }}</h2>
             <p>{{ .post.Body }}</p>
-            <a href="/">back</a>
+            <p><a href="/edit/{{.post.Id}}">edit</a></p>
+            <p><a href="/">back</a></p>
     </body>
 </html>
