@@ -8,6 +8,9 @@
         {{range .posts}}
                 <h2><a href="/posts/{{ .Id }}">{{ .Title }}</a></h2>
                 <p>{{ .Body }}</p>
+                <form action="/delete/{{ .Id }}" method="post">
+                    <button type="submit">delete</button>
+                </form>
         {{end}}
         <div>
             <a href="/create">create post</a>

@@ -45,3 +45,10 @@ func (data Post) Update() {
 		panic(result.Error)
 	}
 }
+
+func (data Post) Delete() {
+	result := Db.Delete(data)
+	if result.Error != nil {
+		panic(result.Error)
+	}
+}

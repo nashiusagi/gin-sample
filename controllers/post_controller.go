@@ -49,3 +49,12 @@ func Update(c *gin.Context) {
 
 	c.Redirect(301, "/posts/"+str_id)
 }
+
+func Delete(c *gin.Context) {
+	str_id := c.Param("id")
+	id, _ := strconv.Atoi(str_id)
+	post := models.GetOne(id)
+	post.Delete()
+
+	c.Redirect(301, "/")
+}
