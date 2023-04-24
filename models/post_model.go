@@ -38,3 +38,10 @@ func (data Post) Create() {
 	}
 	return
 }
+
+func (data Post) Update(){
+    result:=Db.Save(&data)
+    if result.Error!=nil{
+        panic(result.Error)
+    }
+}

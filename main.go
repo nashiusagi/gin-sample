@@ -13,6 +13,8 @@ func setUpRouter() *gin.Engine {
 	r.POST("/posts/store", controllers.StorePost)
 	r.GET("/posts/:id", controllers.ShowOnePost)
 	r.GET("/create", controllers.Create)
+	r.GET("/edit/:id", controllers.Edit)
+	r.POST("/update/:id", controllers.Update)
 
 	return r
 }
