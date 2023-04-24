@@ -18,3 +18,15 @@ func ShowOnePost(c *gin.Context) {
 	fmt.Println(post)
 	c.HTML(200, "show.tmpl", gin.H{"post": post})
 }
+
+func Create(c *gin.Context) {
+	c.HTML(200, "create.tmpl", gin.H{})
+}
+
+func StorePost(c *gin.Context){
+    title:=c.PostForm("title")
+    body:=c.PostForm("body")
+    post:=models.Post{Title:title,Body:body}
+    post.Create()
+    c.Redirect(301,"/")
+}

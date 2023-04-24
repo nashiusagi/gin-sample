@@ -10,7 +10,9 @@ func setUpRouter() *gin.Engine {
 	r.LoadHTMLGlob("resources/views/*")
 
 	r.GET("/", controllers.ShowAllPost)
+	r.POST("/posts/store", controllers.StorePost)
 	r.GET("/posts/:id", controllers.ShowOnePost)
+	r.GET("/create", controllers.Create)
 
 	return r
 }

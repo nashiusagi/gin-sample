@@ -1,13 +1,13 @@
 package models
 
+import (
+    "fmt"
+)
+
 type Post struct {
 	Id    uint `gorm:"primaryKey"`
 	Title string
 	Body  string
-}
-
-func init() {
-	Db.Set("gorm:table_options", "ENGINE = InnoDB").AutoMigrate(Post{})
 }
 
 func Get() []Post {
@@ -31,7 +31,8 @@ func GetOne(id int) Post {
 }
 
 func (data Post) Create() {
-	result := Db.Create(data)
+    fmt.Println(data)
+	result := Db.Create(&data)
 	if result.Error != nil {
 		panic(result.Error)
 	}
