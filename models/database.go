@@ -20,6 +20,7 @@ func init() {
 	user := os.Getenv("DB_USER")
 	pw := os.Getenv("DB_PASSWORD")
 	db_name := os.Getenv("DB_NAME")
+
 	var path string = fmt.Sprintf("%s:%s@tcp(localhost:3306)/%s?charset=utf8&parseTime=true", user, pw, db_name)
 	dialector := mysql.Open(path)
 
